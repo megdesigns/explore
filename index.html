@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEG's Interface Design Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Crimson+Text&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -28,7 +27,7 @@
         }
 
         h2 {
-            margin-bottom: 20px;
+            margin-bottom: 20px; 
         }
 
         nav {
@@ -44,7 +43,6 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
         }
 
         nav a {
@@ -64,7 +62,6 @@
             padding: 50px 20px;
             text-align: center;
             background-color: #f2f0ef;
-            margin-bottom: 40px;
         }
 
         #home {
@@ -125,7 +122,7 @@
             width: 100%;
             height: 3px;
             background-color: #f2f0ef;
-            margin: 20px 0;
+            margin: 5px 0;
         }
 
         @keyframes scroll {
@@ -149,7 +146,7 @@
 
         .prototype-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
             gap: 20px;
             max-width: 1200px;
             margin: 20px auto;
@@ -158,8 +155,8 @@
 
         .prototype-card {
             position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
+            width: 250px;
+            height: 250px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
@@ -169,17 +166,17 @@
 
         .other-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 350px);
             gap: 20px;
-            max-width: 1200px;
+            max-width: 740px; 
             margin: 20px auto;
             justify-content: center;
         }
 
         .other-card {
             position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
+            width: 350px;
+            height: 350px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
@@ -202,19 +199,16 @@
         #about {
             background-color: #f2f0ef;
             color: #333;
-            padding: 30px 20px;
+            padding: 30px 300px; 
             text-align: justify;
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
-
         #about h2 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 0px; 
         }
-
         #contact {
-            padding: 50px 20px;
-            margin-bottom: 40px;
+            padding: 50px 20px; 
         }
 
         footer {
@@ -222,7 +216,6 @@
             color: #fffffe;
             text-align: center;
             padding: 20px;
-            margin-top: 0;
         }
 
         footer p.attention {
@@ -231,31 +224,14 @@
             margin-bottom: 10px;
         }
 
-        footer .social-links {
-            margin: 10px 0;
-        }
-
-        footer .social-links a {
-            color: #fffffe;
+        footer a {
+            color: #3498db;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 24px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            display: inline-block;
-            line-height: 1;
+            margin: 0 10px;
         }
 
-        footer .social-links a:hover {
-            transform: scale(1.2);
-            opacity: 0.8;
-        }
-
-        footer .social-links .fa-envelope {
-            color: #0078d4 !important;
-        }
-
-        footer .social-links .fa-linkedin {
-            color: #0a66c2 !important;
+        footer a:hover {
+            text-decoration: underline;
         }
 
         footer p.copyright {
@@ -264,7 +240,7 @@
 
         #form-container {
             max-width: 350px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             background: #f2f0ef;
             border-radius: 12px;
@@ -335,31 +311,27 @@
             display: none;
         }
 
-        /* Responsive Styles */
+        /* Responsive Fixes */
         @media (max-width: 1024px) {
-            body {
-                font-size: 17px;
-            }
-            h1, h2, h3, h4, h5, h6 {
-                font-size: 36px;
-            }
-            section {
-                padding: 40px 20px;
-            }
-            #home .intro {
-                padding: 30px 20px;
+            #about {
+                padding: 30px 50px;
             }
             .prototype-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
             .prototype-card {
                 width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
             }
             .other-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                max-width: 100%;
             }
             .other-card {
                 width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
             }
         }
 
@@ -384,6 +356,14 @@
             }
             #contact {
                 padding: 30px 15px;
+            }
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            nav a {
+                font-size: 15px;
+                padding: 4px 8px;
             }
             .scroll-card {
                 width: 100px;
@@ -420,13 +400,6 @@
             h5[style*="font-size"] {
                 font-size: 18px !important;
             }
-            nav ul {
-                gap: 8px;
-            }
-            nav a {
-                font-size: 14px;
-                padding: 4px 8px;
-            }
             section {
                 padding: 20px 10px;
             }
@@ -439,6 +412,13 @@
             #contact {
                 padding: 20px 10px;
             }
+            nav ul {
+                gap: 10px;
+            }
+            nav a {
+                font-size: 14px;
+                padding: 4px 8px;
+            }
             .scroll-card {
                 width: 90px;
                 height: 35px;
@@ -447,18 +427,28 @@
             .prototype-grid {
                 grid-template-columns: 1fr;
             }
+            .prototype-card {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
             .other-grid {
                 grid-template-columns: 1fr;
             }
-            footer .social-links a {
-                font-size: 20px;
-                margin: 0 10px;
+            .other-card {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            footer a {
+                font-size: 16px;
+                margin: 0 8px;
             }
         }
 
         @media (max-width: 360px) {
             nav ul {
-                gap: 6px;
+                gap: 8px;
             }
             nav a {
                 font-size: 13px;
@@ -469,11 +459,9 @@
                 height: 30px;
                 font-size: 10px;
             }
-            .prototype-grid {
-                grid-template-columns: 1fr;
-            }
-            .other-grid {
-                grid-template-columns: 1fr;
+            footer a {
+                font-size: 14px;
+                margin: 0 6px;
             }
         }
     </style>
@@ -582,66 +570,65 @@
         I am a curious and creative individual with a strong desire to learn and grow in the field of design. I thrive in collaborative environments where I can share ideas and learn from others. My background in Political Science has equipped me with strong analytical skills, which I apply to my design process to ensure that my work is both user-centered and strategically aligned with business goals.
 
         I am currently pursuing a Master of Science degree in Human-Computer Interaction and User Experience at Drexel University.</p>
-        <p>I believe great design is a balance of creativity, strategy, and empathy. My process is rooted in user-centered design principles, ensuring every product I create aligns with user needs and business goals.</p>
-        <br>
+       <p> I believe great design is a balance of creativity, strategy, and empathy. My process is rooted in user-centered design principles, ensuring every product I create aligns with user needs and business goals.</p>
+<br>
         <h5 style="font-size: 22px;">My Design Approach</h5>
         <p><i>Research & Discovery;</i></p>
-        <p>I start by understanding the problem space, gathering insights through user research, competitive analysis, and stakeholder collaboration.</p>
+        <p> I start by understanding the problem space, gathering insights through user research, competitive analysis, and stakeholder collaboration.</p>
+
         <p><i>Ideation & Exploration;</i></p>
         <p>I brainstorm, sketch, and prototype ideas, iterating based on feedback and testing to refine the best solutions.</p>
+
         <p><i>Design & Execution;</i></p>
         <p>I craft clean, visually appealing, and functional designs that enhance the user experience.</p>
+
         <p><i>Testing & Iteration;</i></p>
         <p>I continuously test and refine my designs, ensuring they are intuitive, accessible, and impactful.</p>
+
         <br>
         <p>I’m proficient in tools like Figma, with experience in User Research, Usability Testing, Prototyping and Framer. I also have some experience in website development (HTML/CSS and Javascript). With a Bachelor’s in Political Science, I’ve successfully transitioned into design, bringing a fresh perspective to creating meaningful digital experiences.</p>
         <br>
-        <p>Throughout my design journey, I’ve also explored other creative and technical fields like Blender modeling and website development. I learn something new almost every day, and it’s been an exciting journey. In fact, I’m more convinced than ever that you can be whoever you want to be and achieve whatever you set your mind to if you put in the work.</p>
+        <p> Throughout my design journey, I’ve also explored other creative and technical fields like Blender modeling and website development. I learn something new almost every day, and it’s been an exciting journey. In fact, I’m more convinced than ever that you can be whoever you want to be and achieve whatever you set your mind to if you put in the work.</p>
         <br>
-        <p>I’m always looking for new challenges and opportunities to grow, so if you have a project in mind or just want to chat, feel free to reach out!</p>
-        <p>In my free time, I enjoy playing video games, especially EAFC. I also love traveling, though I’m not a fan of long flights or drives, I enjoy discovering new places, experiencing different cultures, and meeting new people.</p>
+        <p> I’m always looking for new challenges and opportunities to grow, so if you have a project in mind or just want to chat, feel free to reach out!</p>
+         In my free time, I enjoy playing video games, especially EAFC. I also love traveling, though I’m not a fan of long flights or drives, I enjoy discovering new places, experiencing different cultures, and meeting new people.</p>
     </section>
     <div class="divider-line"></div>
     <section id="contact">
         <h2>Contact Me</h2>
         <p>If you have any questions, feedback, or just want to say hi, feel free to reach out!</p>
-        <div id="form-container">
-            <form id="contact-form" action="https://formsubmit.co/mariang.uiux@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="">
-                <input type="hidden" name="_subject" value="New Contact Form Submission">
-                <input type="text" name="_honey" class="hidden-field">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="phone">Phone Number (Optional):</label>
-                <input type="tel" id="phone" name="phone">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit" id="submit-button">Send</button>
-            </form>
-            <div id="success-message">
-                <span>✔</span> Sent!
-            </div>
+    <div id="form-container">
+        <form id="contact-form" action="https://formsubmit.co/mariang.uiux@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_subject" value="New Contact Form Submission">
+            <input type="text" name="_honey" class="hidden-field">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number (Optional):</label>
+            <input type="tel" id="phone" name="phone">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" id="submit-button">Send</button>
+        </form>
+        <div id="success-message">
+            <span>✔</span> Sent!
         </div>
-    </section>
+    </div>
 
     <footer>
         <p class="attention">Do I have your attention? Let’s talk</p>
-        <div class="social-links">
-            <a href="mailto:meg444@drexel.edu" title="Email me">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/mariangasinu-6755bb20a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" title="View my LinkedIn profile">
-                <i class="fab fa-linkedin"></i>
-            </a>
+        <div>
+            <a href="mailto:meg444@drexel.edu">Email</a>
+            <a href="https://www.linkedin.com/in/mariangasinu-6755bb20a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
         </div>
         <p class="copyright">© 2025 MEG. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+     
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -650,7 +637,7 @@
             });
         });
 
-        // Navigation highlight on scroll
+     
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
@@ -676,7 +663,7 @@
             });
         });
 
-        // Form submission handling
+      
         document.getElementById("contact-form").addEventListener("submit", function(event) {
             event.preventDefault();
             let submitButton = document.getElementById("submit-button");
