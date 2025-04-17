@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Wheels Project - MEG's Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Crimson+Text&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f0ef;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px; /* Base font size */
+            color: #333;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-weight: normal;
+        }
+
+        nav {
+            background-color: #2c2c2c;
+            position: sticky;
+            top: 0;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; 
+        }
+
+        nav a {
+            color: #fffffe;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 16px;
+            padding: 8px 12px; 
+        }
+
+        nav a:hover {
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+
+        .project-details {
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 0 15px;
+            text-align: left;
+        }
+
+        .project-details h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .project-details img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .project-details p {
+            margin-bottom: 15px;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px; /* Larger touch area */
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: #fffffe;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .image-container img {
+            width: 45%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .text-container .empathize-card,
+        .text-container .define-card,
+        .text-container .ideate-card,
+        .text-container .prototype-card,
+        .text-container .test-card {
+            flex: 1;
+            min-width: 150px;
+            max-width: 250px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .text-container p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .text-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .problem-statement-card {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .problem-statement-card p {
+            margin-bottom: 10px;
+        }
+
+        .user-personas-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .user-personas-card {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+            max-width: 33%;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .user-personas-card img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        .solution-card {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .text-container ul,
+        .problem-statement-card ul,
+        .user-personas-card ul {
+            list-style-type: disc;
+            padding-left: 30px;
+            margin: 0;
+        }
+
+     
+        .ewde3-img {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+        }
+
+        .ewde-pair img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px; /* Smaller base font */
+            }
+
+            .project-details {
+                max-width: 95%; /* Wider for mobile */
+                padding: 0 10px;
+            }
+
+            .project-details h2 {
+                font-size: 28px; /* Smaller heading */
+            }
+
+            nav ul {
+                gap: 10px; /* Tighter nav spacing */
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+
+            .image-container,
+            .text-container,
+            .user-personas-container {
+                flex-direction: column; /* Stack vertically */
+                align-items: stretch;
+            }
+
+            .image-container img {
+                width: 100%; /* Full-width images */
+                margin-bottom: 15px;
+            }
+
+            .text-container .empathize-card,
+            .text-container .define-card,
+            .text-container .ideate-card,
+            .text-container .prototype-card,
+            .text-container .test-card,
+            .user-personas-card {
+                min-width: 100%; /* Full-width cards */
+                max-width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .user-personas-card img {
+                width: 150px; /* Smaller persona images */
+                height: 150px;
+            }
+
+            .solution-card,
+            .problem-statement-card {
+                padding: 15px; /* Less padding */
+            }
+
+            .text-container ul,
+            .problem-statement-card ul,
+            .user-personas-card ul {
+                padding-left: 20px; /* Less list indent */
+            }
+
+            .ewde-pair {
+                flex-direction: column; /* Stack paired images */
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                font-size: 14px;
+            }
+
+            .project-details h2 {
+                font-size: 24px;
+            }
+
+            nav ul {
+                flex-direction: column; 
+                align-items: center;
+            }
+        }
+
+        
+        @media (min-width: 800px) {
+            .user-personas-container {
+                flex-wrap: nowrap; 
+            }
+
+            .text-container,
+            .image-container {
+                flex-direction: row; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="megwebsite.html">Home</a></li>
+            <li><a href="megwebsite.html">Projects</a></li>
+            <li><a href="megwebsite.html">About</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Project Content -->
+    <section class="project-details">
+        <h2>Elite Wheels Project</h2>
+        <p>Designing a luxury car rental app</p>
+        <div class="image-container">
+            <img src="pictures/ppew.gif" alt="PPEW prototype" loading="lazy">
+        </div>
+        <div class="problem-statement-card">
+            <p><h3>Problem Statement</h3></p>
+            <p>Luxury car enthusiasts and discerning travelers are frustrated with current rental platforms that offer fragmented, impersonal experiences. Confusing navigation, unclear pricing, and rigid service models fail to meet their high expectations for a premium, tailored rental experience.</p>
+        </div>
+        <div class="text-container">
+            <div class="empathize-card">
+                <p><h4>Empathize</h4></p>
+                <ul>
+                    <li>User Research</li>
+                    <li>User journey mapping</li>
+                    <li>Contextual observation</li>
+                </ul>
+            </div>
+            <div class="define-card">
+                <p><h5>Define</h5></p>
+                <ul>
+                    <li>Key issues</li>
+                    <li>User needs</li>
+                    <li>Opportunities</li>
+                </ul>
+            </div>
+            <div class="ideate-card">
+                <p><h6>Ideate</h6></p>
+                <ul>
+                    <li>Brainstorming solutions</li>
+                    <li>Feature prioritization</li>
+                    <li>Concept sketching</li>
+                </ul>
+            </div>
+            <div class="prototype-card">
+                <p><h7>Prototype</h7></p>
+                <ul>
+                    <li>Wireframing</li>
+                    <li>Interactive prototype</li>
+                    <li>Internal review</li>
+                </ul>
+            </div>
+            <div class="test-card">
+                <p><h8>Test</h8></p>
+                <ul>
+                    <li>Usability testing</li>
+                    <li>Feedback collection</li>
+                    <li>Iterative refinement</li>
+                </ul>
+            </div>
+        </div>
+        <div class="solution-card">
+            <p><h9>Solution</h9></p>
+            <p>Our app revolutionizes the luxury car rental experience by providing a curated fleet of high-end vehicles and an intuitive, seamless booking process. With features like dynamic booking calendars, AR car previews, and on-demand concierge support, we transform every rental into a red-carpet experience that reflects the lifestyle of our discerning clientele.</p>
+        </div>
+        <img src="pictures/ewde3.png" class="ewde3-img" alt="PPEW prototype" loading="lazy">
+        <div class="user-personas-container">
+            <div class="user-personas-card">
+                <img src="pictures/business-executive.png" alt="Business Executive" loading="lazy">
+                <p><h10>1. The Business Executive</h10></p>
+                <p>A busy corporate leader who needs an efficient, reliable, and professional rental service that fits into a tight schedule.</p>
+                <p>Needs:</p>
+                <ul>
+                    <li>Booking: Minimal steps to secure a vehicle quickly.</li>
+                    <li>Reliability: Guaranteed vehicle availability and pristine condition.</li>
+                    <li>Professionalism: Service that enhances their image and meets corporate standards.</li>
+                </ul>
+                <p>Challenges:</p>
+                <ul>
+                    <li>Time Constraints: Limited time for navigating complex interfaces.</li>
+                    <li>Inconsistent Service: Variability in quality across providers.</li>
+                    <li>Personalisation Gaps: Standardised services that do not cater to specific business needs.</li>
+                </ul>
+                <p>Solutions:</p>
+                <ul>
+                    <li>Streamlined UI: A clean, efficient design that allows booking in just a few taps.</li>
+                    <li>VIP Concierge: On-demand support for quick resolutions and schedule adjustments.</li>
+                    <li>Integrated Scheduling: Calendar sync and automated reminders to ensure punctuality.</li>
+                </ul>
+            </div>
+            <div class="user-personas-card">
+                <img src="pictures/awardwinningactress.png" alt="Award-winning actress" loading="lazy">
+                <p><h10>2. The Award-winning Actress</h10></p>
+                <p>A high-profile celebrity preparing for an award show, needing a ride that matches her glamorous image.</p>
+                <p>Needs:</p>
+                <ul>
+                    <li>Show-Stopping Cars: Access to vehicles that create a red-carpet impact.</li>
+                    <li>Discreet Service: Privacy and white-glove treatment throughout the rental.</li>
+                    <li>Seamless Booking: An effortless process that fits her demanding schedule.</li>
+                </ul>
+                <p>Challenges:</p>
+                <ul>
+                    <li>Public Exposure: Avoiding unwanted attention during pick-up and drop-off.</li>
+                    <li>Time Sensitivity: Coordinating logistics around tightly scheduled events.</li>
+                    <li>Image Consistency: Ensuring every detail upholds her celebrity status.</li>
+                </ul>
+                <p>Solutions:</p>
+                <ul>
+                    <li>Premium Fleet Section: Dedicated, high-profile vehicle options.</li>
+                    <li>VIP Channels: Discreet booking and pickup arrangements with direct concierge support.</li>
+                    <li>Customizable Options: On-demand features for vehicle detailing and in-car amenities.</li>
+                </ul>
+            </div>
+            <div class="user-personas-card">
+                <img src="pictures/creativemusician.png" alt="Creative Musician" loading="lazy">
+                <p><h10>3. The Creative Musician</h10></p>
+                <p>A dynamic artist shooting a music video, requiring a vehicle that doubles as a bold visual statement.</p>
+                <p>Needs:</p>
+                <ul>
+                    <li>Iconic Rides: Vehicles that serve as a striking backdrop for creative projects.</li>
+                    <li>Flexible Rentals: Options for short-term, project-based usage that fit creative schedules.</li>
+                    <li>Creative Customization: Ability to modify the vehicle temporarily for a unique look.</li>
+                </ul>
+                <p>Challenges:</p>
+                <ul>
+                    <li>Tight Deadlines: Securing a vehicle quickly for time-sensitive shoots.</li>
+                    <li>Creative Demands: Balancing standard rental procedures with unique artistic needs.</li>
+                    <li>Budget Considerations: Managing costs while accessing premium services.</li>
+                </ul>
+                <p>Solutions:</p>
+                <ul>
+                    <li>Special Packages: Creative rental options designed for short-term, project-based use.</li>
+                    <li>Customization Features: Options for temporary modifications (lighting, decals) to suit artistic vision.</li>
+                    <li>Project Pricing: Tailored pricing models that offer premium features within a creative budget.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="image-container ewde-pair">
+            <img src="pictures/ewde2.png" alt="PPEW prototype" loading="lazy">
+            <img src="pictures/ewde.png" alt="PPEW prototype" loading="lazy">
+        </div>
+        <div class="user-personas-card" style="max-width: 60%; margin: 20px auto; text-align: left; font-family: 'Crimson Text', serif; font-size: 16px;">
+            <img src="pictures/competitive analysis.png" alt="Competitive Analysis" style="width: 80%; height: auto; border-radius: 8px; object-fit: cover; margin: 0 auto; display: block;" loading="lazy">
+            <h4 style="font-family: 'Bubblegum Sans', cursive; font-size: 20px; margin-top: 10px;">Competitive Analysis</h4>
+            <p>Turo</p>
+            <p>Strengths:</p>
+            <ul>
+                <li>Wide Selection: Offers a diverse range of vehicles through a peer-to-peer marketplace.</li>
+                <li>User-Friendly Interface: Intuitive app design simplifies the rental process.</li>
+                <li>Flexible Options: Various rental durations and styles available.</li>
+            </ul>
+            <p>Weaknesses:</p>
+            <ul>
+                <li>Inconsistent Quality: Vehicle and service quality can vary significantly.</li>
+                <li>Limited Luxury Focus: Less emphasis on curated, high-end experiences.</li>
+                <li>Variable Support: Customer service can be hit-or-miss due to the peer-to-peer model.</li>
+            </ul>
+            <p>Hertz Dream Collection</p>
+            <p>Strengths:</p>
+            <ul>
+                <li>Brand Trust: A long-established, reputable name in car rentals.</li>
+                <li>Premium Vehicles: Consistently high-quality, luxury vehicles.</li>
+                <li>Standardised Service: Reliable processes across different locations.</li>
+            </ul>
+            <p>Weaknesses:</p>
+            <ul>
+                <li>Rigid Policies: Limited flexibility and customisation options.</li>
+                <li>Outdated Digital Experience: The app and online service can feel less modern compared to competitors.</li>
+            </ul>
+            <p>Overall Competitive Insights</p>
+            <p>Opportunities:</p>
+            <ul>
+                <li>Curated Experience: A gap exists for a platform that combines a luxury vehicle selection with a truly personalised digital experience.</li>
+                <li>Enhanced Support: Integrated, high-quality customer service can set the app apart.</li>
+                <li>Digital Innovation: Leveraging modern UX/UI, AR previews, and flexible pricing can attract tech-savvy and luxury-focused users.</li>
+            </ul>
+            <p>Threats:</p>
+            <ul>
+                <li>Established Brands: Competitors with long-standing reputations may challenge user trust and market share.</li>
+                <li>Inconsistent Quality in Peer-to-Peer Models: Variable service levels may cause users to hesitate in switching platforms.</li>
+                <li>High User Expectations: The luxury market demands perfection; any misstep can significantly impact reputation.</li>
+            </ul>
+        </div>
+        <div class="solution-card">
+            <h3>Conclusion</h3>
+            <p>This project was an exciting journey that began with understanding our users' desires and challenges, and evolved through a creative process of ideation, prototyping, and testing. Embracing each stage allowed us to blend innovative digital solutions with the timeless appeal of luxury, resulting in a truly personalized car rental experience. I truly enjoyed working on this project—it challenged me to think critically, embrace creativity, and ultimately, deliver a premium solution that reflects both the essence of luxury and the art of seamless user experience.</p>
+        </div>
+        <a href="megwebsite.html" class="back-link">← Back to Projects</a>
+    </section>
+</body>
+</html>

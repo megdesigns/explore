@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temu Website Redesign - MEG's Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Crimson+Text&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f0ef;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            color: #333;
+        }
+
+        nav {
+            background-color: #2c2c2c;
+            position: sticky;
+            top: 0;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fffffe;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+
+        .project-details {
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .project-details img {
+            width: 100%;
+            max-width: 1200px; /* Limits size on large screens */
+            height: auto;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            display: inline-block;
+            margin: 20px 0;
+            padding: 8px;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+            }
+
+            .project-details {
+                max-width: 95%;
+                padding: 0 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+
+            .project-details img {
+                margin: 10px auto;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                font-size: 14px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-details img {
+                margin: 5px auto;
+            }
+
+            .back-link {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="megwebsite.html">Home</a></li>
+            <li><a href="megwebsite.html">Projects</a></li>
+            <li><a href="megwebsite.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Content -->
+    <section class="project-details">
+        <img src="pictures/TEMUPORThtml.png" alt="Temu Website Redesign Mockup" loading="lazy">
+        <a href="megwebsite.html" class="back-link">← Back to Projects</a>
+    </section>
+</body>
+</html>
