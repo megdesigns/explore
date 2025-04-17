@@ -27,7 +27,7 @@
         }
 
         h2 {
-            margin-bottom: 20px; 
+            margin-bottom: 20px; /* Standardized margin for consistent spacing */
         }
 
         nav {
@@ -426,20 +426,35 @@
         </div>
     </section>
 
-    <div class="other-grid">
-        <a href="ewp001.html" class="other-card">
-            <img src="pictures/elitewheelsgrid.png" alt="Temu Website Redesign">
-        </a>
-        <div class="other-card">
-            <img src="pictures/uxresearchgrid.png" alt="Project 5">
+    <section id="projects">
+        <h2>Prototyping the User Experience Projects</h2>
+        <div class="prototype-grid">
+            <a href="ewp001.html" class="prototype-card">
+                <img src="pictures/Project1png.png" alt="Project 1">
+            </a>
+            <div class="prototype-card">
+                <img src="pictures/Project2png.png" alt="Project 2">
+            </div>
+            <div class="prototype-card">
+                <img src="pictures/Project3png.png" alt="Project 3">
+            </div>
         </div>
-        <a href="https://wallacecommunitylibrary.framer.website" class="other-card">
-            <img src="pictures/wallacelibrarygrid.png" alt="Wallace Community Library">
-        </a>
-        <a href="temuwebpng.html" class="other-card">
-            <img src="pictures/temugrid.png" alt="Temu project">
-        </a>
-    </div>
+        <h2>Other Projects</h2>
+        <div class="other-grid">
+            <a href="ewp001.html" class="other-card">
+                <img src="pictures/elitewheelsgrid.png" alt="Temu Website Redesign">
+            </a>
+            <div class="other-card">
+                <img src="pictures/uxresearchgrid.png" alt="Project 5">
+            </div>
+            <div class="other-card">
+                <img src="pictures/wallacelibrarygrid.png" alt="Project 6">
+            </div>
+            <a href="temuwebpng.html" class="other-card">
+                <img src="pictures/temugrid.png" alt="Temu project">
+            </a>
+        </div>
+    </section>
 
     <section id="about">
         <h2>About Me</h2>
@@ -487,7 +502,7 @@
             <label for="phone">Phone Number (Optional):</label>
             <input type="tel" id="phone" name="phone">
             <label for="message">Message:</label>
-            <textarea id="message Vivi" name="message" required></textarea>
+            <textarea id="message" name="message" required></textarea>
             <button type="submit" id="submit-button">Send</button>
         </form>
         <div id="success-message">
@@ -505,7 +520,7 @@
     </footer>
 
     <script>
- 
+        // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -514,7 +529,7 @@
             });
         });
 
-        
+        // Navigation highlight on scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
@@ -540,7 +555,7 @@
             });
         });
 
-      
+        // Form submission handling
         document.getElementById("contact-form").addEventListener("submit", function(event) {
             event.preventDefault();
             let submitButton = document.getElementById("submit-button");
