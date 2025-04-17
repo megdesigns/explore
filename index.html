@@ -27,7 +27,7 @@
         }
 
         h2 {
-            margin-bottom: 20px; /* Standardized margin for consistent spacing */
+            margin-bottom: 20px; 
         }
 
         nav {
@@ -505,7 +505,7 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+ 
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -514,7 +514,7 @@
             });
         });
 
-        // Navigation highlight on scroll
+        
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
@@ -540,7 +540,7 @@
             });
         });
 
-        // Form submission handling
+      
         document.getElementById("contact-form").addEventListener("submit", function(event) {
             event.preventDefault();
             let submitButton = document.getElementById("submit-button");
