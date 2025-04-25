@@ -99,7 +99,98 @@
             margin-bottom: 20px;
         }
 
+        /* Storyboard Styles */
+        .storyboard-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .storyboard-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: calc(33.33% - 14px);
+            height: 250px;
+            background-color: #f8f8f8;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .storyboard-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .storyboard-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        /* The Overlay (background) */
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Overlay Content */
+        .overlay-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* The Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
         /* Mobile Optimizations */
+        @media (max-width: 992px) {
+            .storyboard-card {
+                width: calc(50% - 10px);
+            }
+        }
+
         @media (max-width: 600px) {
             body {
                 font-size: 16px;
@@ -125,6 +216,10 @@
             
             h2 {
                 font-size: 24px;
+            }
+            
+            .storyboard-card {
+                width: 100%;
             }
         }
 
@@ -173,22 +268,36 @@ Low-Fidelity Storyboard and Mid-Fidelity Wireframing </h1>
             <p>Guests can easily browse digital menus, place orders, and check out at their convenience, eliminating the need to wait for the check or flag down a server. To better enhance the customer experience, real-time notifications keep restaurant staff informed of orders, service requests, and bussing needs, improving overall efficiency within the restaurant. A streamlined, color-coded system alerts the wait staff of customer needs, ensuring a smoother, more responsive dining experience.</p>
         </div>
         
-<div class="section">
-    <h2>Story Board</h2>
-    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-        <div style="border: 1px solid #ccc; border-radius: 8px; width: 50%; height: 250px; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8; overflow: hidden;">
-            <img src="pictures/storyboard1.png" alt="Story Board 1" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        <!-- Updated Storyboard Section -->
+        <div class="section">
+            <h2>Story Board</h2>
+            <div class="storyboard-container">
+                <div class="storyboard-card">
+                    <div class="card-inner">
+                        <img src="pictures/storyboard1.png" alt="Story Board 1">
+                    </div>
+                </div>
+                
+                <div class="storyboard-card">
+                    <div class="card-inner">
+                        <img src="pictures/storyboard2.png" alt="Story Board 2">
+                    </div>
+                </div>
+                
+                <div class="storyboard-card">
+                    <div class="card-inner">
+                        <img src="pictures/storyboard3.png" alt="Story Board 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Overlay -->
+        <div id="storyboardOverlay" class="overlay">
+            <span class="close-btn">&times;</span>
+            <img class="overlay-content" id="overlayImage">
         </div>
         
-        <div style="border: 1px solid #ccc; border-radius: 8px; width: 50%; height: 250px; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8; overflow: hidden;">
-            <img src="pictures/storyboard2.png" alt="Story Board 2" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-        
-        <div style="border: 1px solid #ccc; border-radius: 8px; width: 50%; height: 250px; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8; overflow: hidden;">
-            <img src="pictures/storyboard3.png" alt="Story Board 3" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-    </div>
-</div>
         <div class="section">
             <h2>Feedback</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id pharetra elit. Etiam rhoncus nulla ut ex tempus efficitur. Nam at ligula fermentum, varius dui a, bibendum ex. Maecenas ut nibh ultricies, porttitor tortor in, dapibus ipsum. Donec posuere nulla non ipsum consequat egestas. Aenean non sodales est. Mauris ultrices nibh ac dui fermentum, id suscipit nisi semper.</p>
@@ -221,5 +330,46 @@ Low-Fidelity Storyboard and Mid-Fidelity Wireframing </h1>
         
         <a href="index.html" class="back-link">← Back to Projects</a>
     </section>
+
+    <!-- JavaScript for the overlay functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all storyboard cards
+            const cards = document.querySelectorAll('.storyboard-card');
+            const overlay = document.getElementById('storyboardOverlay');
+            const overlayImage = document.getElementById('overlayImage');
+            const closeBtn = document.querySelector('.close-btn');
+            
+            // Add click event to each card
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const cardImg = this.querySelector('img');
+                    overlayImage.src = cardImg.src;
+                    overlay.style.display = 'block';
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                    }, 10);
+                });
+            });
+            
+            // Close the overlay when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 300);
+            });
+            
+            // Close the overlay when clicking outside the image
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
