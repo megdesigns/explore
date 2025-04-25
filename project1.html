@@ -1,1 +1,216 @@
-  <a href="ewp001.html" class="other-card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1 - MEG's Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Crimson+Text&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f0ef;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #2c2c2c;
+            position: sticky;
+            top: 0;
+            padding: 10px 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fffffe;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+
+        .project-details {
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .project-details img {
+            width: 100%;
+            max-width: 1200px; /* Limits size on large screens */
+            height: auto;
+            border-radius: 8px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            display: inline-block;
+            margin: 20px 0;
+            padding: 8px;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            font-size: 28px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+            }
+
+            .project-details {
+                max-width: 95%;
+                padding: 0 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+
+            .project-details img {
+                margin: 10px auto;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                font-size: 14px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-details img {
+                margin: 5px auto;
+            }
+
+            .back-link {
+                font-size: 16px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Projects</a></li>
+            <li><a href="index.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Content -->
+    <section class="project-details">
+        <h1 style="font-family: 'Bubblegum Sans', cursive; text-align: center; margin: 30px 0; color: #2c2c2c; font-size: 36px;">Temu Website Redesign</h1>
+        
+        <img src="pictures/TEMUPORThtml.png" alt="Temu Website Redesign Mockup" loading="lazy">
+        
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at libero in tortor facilisis venenatis. Donec luctus justo in leo varius, vitae iaculis dui sagittis. Nulla facilisi. Etiam pulvinar justo eget sem tincidunt, vel bibendum quam bibendum. Vivamus vel tortor quis dolor facilisis tempus. Nullam euismod ullamcorper mi, ac facilisis turpis elementum vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+            <p>Ut efficitur massa id eleifend accumsan. Aliquam erat volutpat. Etiam volutpat interdum tellus a finibus. Etiam ultrices elit id metus dictum, quis euismod eros finibus. Pellentesque laoreet ultricies tortor, sit amet sodales est pellentesque eget. Sed sodales ipsum nec tellus molestie, in egestas neque elementum.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Story Board</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum condimentum dui, sit amet imperdiet tortor faucibus at. Morbi fringilla est vel faucibus viverra. Mauris faucibus, odio vel ultrices volutpat, velit lectus auctor dui, eget lacinia felis purus a odio. Suspendisse potenti. Integer vehicula tempus molestie. Morbi convallis molestie sapien in vestibulum.</p>
+            <p>Sed nec ultrices ipsum. Ut fringilla placerat magna, ac sodales orci dapibus et. Integer eget pellentesque lacus. Nulla facilisi. Nam tincidunt nulla quis libero feugiat, accumsan consequat eros viverra. Curabitur eu placerat diam, quis tempus urna. Maecenas eu dictum ipsum. Aliquam erat volutpat.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Feedback</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id pharetra elit. Etiam rhoncus nulla ut ex tempus efficitur. Nam at ligula fermentum, varius dui a, bibendum ex. Maecenas ut nibh ultricies, porttitor tortor in, dapibus ipsum. Donec posuere nulla non ipsum consequat egestas. Aenean non sodales est. Mauris ultrices nibh ac dui fermentum, id suscipit nisi semper.</p>
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque finibus sed magna sed rhoncus. Cras pellentesque porta enim, vel finibus turpis porttitor et. Donec sollicitudin justo ut ipsum pulvinar, vel interdum nulla accumsan.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Wireframes</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis porta fermentum. Integer vel augue non risus ultrices pellentesque quis id est. Etiam at purus rhoncus, feugiat nulla quis, fermentum odio. Etiam sed est in ligula venenatis tempor. Curabitur sed ultricies metus, eget posuere sem. Mauris ut mattis leo. In ut feugiat dui.</p>
+            <p>Ut convallis turpis non quam gravida facilisis. Nullam eu lacus fermentum, accumsan augue eget, finibus magna. In hac habitasse platea dictumst. Aliquam eleifend at ipsum ac varius. Cras et dui accumsan, tempor enim non, hendrerit felis. Sed id nulla ut lectus varius pretium non vitae ipsum.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Design Story / Justification</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae dictum odio. Vestibulum rutrum risus sed nisl placerat, at tempus ante egestas. Duis eu interdum sem. Cras eget sapien sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Integer finibus urna eu neque volutpat interdum.</p>
+            <p>Proin ipsum dolor, commodo eu metus in, vehicula varius justo. Ut sodales mi ex, sed maximus magna convallis id. Sed eget massa libero. Curabitur tempor iaculis ex, vitae finibus ligula condimentum eget. Praesent eget libero non justo ullamcorper consequat vitae vel magna. Integer tempor odio vitae nisi pretium efficitur.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Reflection</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et lorem neque. Suspendisse venenatis nisl ut risus tincidunt, ut efficitur purus efficitur. Nullam eu maximus eros. Maecenas eget nisl id risus maximus luctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu dui felis. Praesent suscipit sapien a eros pulvinar tempus.</p>
+            <p>Cras blandit, ipsum in blandit tempus, dolor sapien porttitor urna, non pellentesque neque lectus vel urna. Nulla facilisi. Duis dignissim tincidunt libero ac rhoncus. Donec at pellentesque tortor. Aliquam consequat arcu nec sapien mollis, sed pulvinar nunc ultricies. Pellentesque vel elit in mi porttitor convallis ac sed turpis. Nulla facilisi.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Appendix</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet a metus non fermentum. Cras quis hendrerit neque, non lobortis erat. In sagittis lacus augue, et tempus mauris volutpat sit amet. Integer feugiat, lectus at sollicitudin tristique, leo ligula commodo tellus, id malesuada nulla magna nec ipsum. In eget nisl id massa lacinia sollicitudin.</p>
+            <p>Phasellus accumsan tempus leo, a imperdiet augue pretium non. Proin libero mauris, posuere in ullamcorper in, mattis quis mi. Pellentesque rhoncus libero in nisi ullamcorper, eget pharetra lorem euismod. Donec fermentum malesuada nisl, nec bibendum mi congue eu. In auctor turpis non orci volutpat, vel malesuada velit egestas.</p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </section>
+</body>
+</html>
