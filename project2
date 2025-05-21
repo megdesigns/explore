@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 - MEG's Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Crimson+Text&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f0ef;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #2c2c2c;
+            position: sticky;
+            top: 0;
+            padding: 10px 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fffffe;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+
+        .project-details {
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .project-details img {
+            width: 100%;
+            max-width: 1200px; 
+            height: auto;
+            border-radius: 8px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-family: 'Bubblegum Sans', cursive;
+            display: inline-block;
+            margin: 20px 0;
+            padding: 8px;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            font-size: 28px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* Sketches Gallery Styles */
+        .sketches-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .sketch-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: calc(33.33% - 14px);
+            height: 250px;
+            background-color: #f8f8f8;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sketch-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sketch-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        /* The Overlay (background) */
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Overlay Content */
+        .overlay-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* The Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 992px) {
+            .sketch-card {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+            }
+
+            .project-details {
+                max-width: 95%;
+                padding: 0 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+
+            .project-details img {
+                margin: 10px auto;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .sketch-card {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                font-size: 14px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-details img {
+                margin: 5px auto;
+            }
+
+            .back-link {
+                font-size: 16px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+        }
+
+        /* Two-column layout for model annotations */
+        .two-column {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .two-column > div {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Video container */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .video-container video {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Projects</a></li>
+            <li><a href="index.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Content -->
+    <section class="project-details">
+        <h1 style="font-family: 'Bubblegum Sans', cursive; text-align: center; margin: 30px 0; color: #2c2c2c; font-size: 36px;">Zen Zip Up - Wellness Jacket:
+Smart Wearable Health Monitoring System</h1>
+        
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Zen Zip Up is a smart wearable designed to integrate real-time health monitoring and seamless digital connectivity into a comfortable, everyday garment. Designed for active individuals, students, and professionals, this jacket combines biometric tracking, environmental sensing, and hands-free communication to support wellness and productivity throughout the day.</p>
+            <p>The core purpose of our design is to provide users with continuous health insights and ambient awareness without the need for multiple devices - all while enabling effortless, intuitive connectivity.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Key Functionalities</h2>
+            <p>Our Zen Zip Up jacket includes several innovative features:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Built-in headphones discreetly integrated into the hood for wireless audio calls and music playback</li>
+                <li>An infrared sensor on the hood that measures forehead temperature without requiring direct contact</li>
+                <li>An external climate sensor on the shoulder that monitors ambient temperature and humidity levels</li>
+                <li>An adjustable chest strap with soft, embedded sensors that tracks heart rate and breathing rate during movement or rest</li>
+                <li>A blood pressure cuff integrated into the sleeve to replicate medical-grade readings</li>
+                <li>A wrist-mounted heart rate sensor positioned opposite the connectivity module to provide redundancy and ensure accuracy</li>
+                <li>A Bluetooth sync module on the wrist that securely pairs the jacket with the user's smartphone via a pair button</li>
+                <li>A forearm display panel that presents a minimal, low-clutter screen displaying live health metrics, notifications, incoming calls, and texts</li>
+            </ul>
+            <p>All sensor data is automatically transmitted via Bluetooth and displayed on both the forearm screen and the paired smartphone, ensuring users can access their health information in real time, whether they're exercising, studying, or commuting.</p>
+        </div>
+        
+        <!-- Sketches Section -->
+        <div class="section">
+            <h2>Sketches and Early Design Explorations</h2>
+            <div class="sketches-container">
+                <div class="sketch-card">
+                    <div class="card-inner">
+                        <img src="pictures/zen_sketch1.png" alt="Zen Zip Up Sketch 1">
+                    </div>
+                </div>
+                
+                <div class="sketch-card">
+                    <div class="card-inner">
+                        <img src="pictures/zen_sketch2.png" alt="Zen Zip Up Sketch 2">
+                    </div>
+                </div>
+                
+                <div class="sketch-card">
+                    <div class="card-inner">
+                        <img src="pictures/zen_sketch3.png" alt="Zen Zip Up Sketch 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Overlay -->
+        <div id="sketchOverlay" class="overlay">
+            <span class="close-btn">&times;</span>
+            <img class="overlay-content" id="overlayImage">
+        </div>
+        
+        <div class="section">
+            <h2>User Benefits</h2>
+            <p>Users gain continuous health monitoring with real-time tracking of heart rate, breathing, body temperature, and blood pressure. Zen Zip Up also enhances environmental awareness by providing alerts for extreme or changing ambient conditions such as heat and humidity.</p>
+            <p>Hands-free connectivity allows for wireless access to calls, texts, and notifications without the need to take out a phone. Feedback is delivered through clear yet unobtrusive visual cues on the forearm display, with optional audio updates for added convenience. The fully integrated experience means all features are built directly into the jacket, eliminating the need for additional wearable devices.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Feedback</h2>
+            <p>We collected feedback from three people who reviewed the initial concept sketches and interaction ideas:</p>
+            
+            <h3 style="font-family: 'Bubblegum Sans', cursive; color: #3498db; margin: 15px 0 10px;">User 1: 21-year-old college student</h3>
+            <p>"The built-in headphone feature is great for workouts. I like the idea of checking heart rate and breathing while running. But the chest belt might be uncomfortable. If anything I'd want it to be super soft and not rub while I move. Will the jacket give alerts at any point? What will it run on? Wireless charging? Batteries?"</p>
+            <p>Based on this feedback, we integrated a minimal visual display on the forearm for key metrics, text messages, and calls.</p>
+            
+            <h3 style="font-family: 'Bubblegum Sans', cursive; color: #3498db; margin: 15px 0 10px;">User 2: A medical doctor</h3>
+            <p>We consulted a licensed physician to evaluate the sensor placement and measurement logic in our concept. The doctor affirmed that pulse readings could be taken from multiple locations but confirmed that the wrist is an ideal placement for consistent heart rate monitoring.</p>
+            <p>Regarding temperature measurement, the doctor noted that skin temperature is not a medically accurate indicator of internal body temperature, and recommended that we measure core body temperature using a sensor positioned on the forehead, which is a medically recognized location. Based on this, we relocated the temperature sensor to the inside of the hood, allowing it to capture the user's forehead temperature non-invasively.</p>
+            
+            <h3 style="font-family: 'Bubblegum Sans', cursive; color: #3498db; margin: 15px 0 10px;">User 3: Medically Trained Peer (EMT)</h3>
+            <p>We also received feedback from a medically trained peer with EMT experience. By the time we spoke, we had already integrated changes based on prior medical advice. The EMT confirmed that our revised sensor placements were reasonable and that the health metrics we proposed could be collected from those specific areas.</p>
+            <p>He also offered input on the appropriate terminology and types of biometric data to display in the user interface, helping us ensure medical accuracy and clarity in the information presented to users.</p>
+            <p>Getting feedback from potential users was helpful and led us to multiple iterations to improve the overall user experience of Zen Zip Up.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Physical Model with Annotations</h2>
+            <div class="two-column">
+                <div>
+                    <img src="pictures/zen_model.png" alt="Zen Zip Up Physical Model">
+                </div>
+                <div>
+                    <p>Our physical model demonstrates the strategic placement of sensors and components to maximize both functionality and comfort:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Hood-integrated headphones with temperature sensor</li>
+                        <li>Shoulder-mounted climate sensor</li>
+                        <li>Chest strap with breathing and heart rate monitoring</li>
+                        <li>Sleeve-integrated blood pressure cuff</li>
+                        <li>Wrist module for connectivity and redundant heart rate monitoring</li>
+                        <li>Forearm display panel for information viewing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Mid-Fidelity UI Screen</h2>
+            <img src="pictures/zen_ui.png" alt="Zen Zip Up UI Screen">
+        </div>
+        
+        <div class="section">
+            <h2>Video Demonstration</h2>
+            <div class="video-container">
+                <video controls width="800" height="450">
+                    <source src="pictures/zen_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p style="text-align: center; font-style: italic;">Video demonstration of the Zen Zip Up jacket's features and functionality.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Design Justification & Reflection</h2>
+            <p>Our design process was driven by a focus on real-time health monitoring integrated into an everyday item: a jacket. We prioritized sensor placement that aligned with medical standards while ensuring comfort and natural interaction. The decision to include a screen on the forearm and a wrist module for syncing was based on maintaining accessibility without overwhelming the user with constant feedback or overdependence on their mobile phone.</p>
+            <p>Our iterations led us to move from a bulky prototype to one with more integrated sensor housings. We also introduced touchless elements, like head/hood temperature checks and wrist-based tapping.</p>
+            
+            <h3 style="font-family: 'Bubblegum Sans', cursive; color: #3498db; margin: 15px 0 10px;">Reflections on feedback:</h3>
+            <p>Our design process began by identifying important health-monitoring and communication needs for everyday users. We prioritized biometric accuracy, comfort, and ease of use. We also explored different options through sketches, and user feedback helped guide refinements to comfort and functionality.</p>
+            <p>The feedback we received from our first prototype cycle taught us the importance of clear user scenarios in presenting our ideas. For this round, we incorporated more contextual storytelling (e.g., use while running or studying), which helped users better understand the functionality and provide relevant suggestions.</p>
+            <p>Going forward, we aim to refine how we present design tradeoffs, especially around comfort vs. accuracy. Including more usability testing early on will also help us catch issues before committing to high-fidelity prototypes.</p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </section>
+
+    <!-- JavaScript for the overlay functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all sketch cards
+            const cards = document.querySelectorAll('.sketch-card');
+            const overlay = document.getElementById('sketchOverlay');
+            const overlayImage = document.getElementById('overlayImage');
+            const closeBtn = document.querySelector('.close-btn');
+            
+            // Add click event to each card
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const cardImg = this.querySelector('img');
+                    overlayImage.src = cardImg.src;
+                    overlay.style.display = 'block';
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                    }, 10);
+                });
+            });
+            
+            // Close the overlay when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 300);
+            });
+            
+            // Close the overlay when clicking outside the image
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
