@@ -317,19 +317,19 @@ Smart Wearable Health Monitoring System</h1>
             <div class="sketches-container">
                 <div class="sketch-card">
                     <div class="card-inner">
-                        <img src="pictures/zen_sketch1.png" alt="Zen Zip Up Sketch 1">
+                        <img src="pictures/sk1.jpg" alt="Zen Zip Up Sketch 1">
                     </div>
                 </div>
                 
                 <div class="sketch-card">
                     <div class="card-inner">
-                        <img src="pictures/zen_sketch2.png" alt="Zen Zip Up Sketch 2">
+                        <img src="pictures/sk2.jpg" alt="Zen Zip Up Sketch 2">
                     </div>
                 </div>
                 
                 <div class="sketch-card">
                     <div class="card-inner">
-                        <img src="pictures/zen_sketch3.png" alt="Zen Zip Up Sketch 3">
+                        <img src="pictures/sk4.png" alt="Zen Zip Up Sketch 3">
                     </div>
                 </div>
             </div>
@@ -369,7 +369,7 @@ Smart Wearable Health Monitoring System</h1>
             <h2>Physical Model with Annotations</h2>
             <div class="two-column">
                 <div>
-                    <img src="pictures/zen_model.png" alt="Zen Zip Up Physical Model">
+                    <img src="pictures/prodimg1.png" alt="Zen Zip Up Physical Model">
                 </div>
                 <div>
                     <p>Our physical model demonstrates the strategic placement of sensors and components to maximize both functionality and comfort:</p>
@@ -387,14 +387,15 @@ Smart Wearable Health Monitoring System</h1>
         
         <div class="section">
             <h2>Mid-Fidelity UI Screen</h2>
-            <img src="pictures/zen_ui.png" alt="Zen Zip Up UI Screen">
+            <img src="pictures/pr1.png" alt="Zen Zip Up UI Screen">
+<img src="pictures/pr2.png" alt="Zen Zip Up UI Screen">
         </div>
         
         <div class="section">
             <h2>Video Demonstration</h2>
             <div class="video-container">
                 <video controls width="800" height="450">
-                    <source src="pictures/zen_demo.mp4" type="video/mp4">
+                    <source src="pictures/vid.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
