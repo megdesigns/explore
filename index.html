@@ -72,77 +72,108 @@
 
         #home {
             color: #333;
+            background-color: #1c1c1c;
+            padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 1.5rem);
         }
 
-        #home .intro {
-            background-color: #2c2c2c;
-            color: #fffffe;
-            padding: 40px 20px;
-            margin-bottom: 10px;
-        }
-
-        #home .intro h1 {
-            margin-bottom: 10px;
-        }
-
-        .scrolling-section {
-            width: 100%;
-            background-color: transparent;
-            margin: 20px 0;
-        }
-
-        .scroll-row {
-            overflow: hidden;
-            padding: 5px 0;
-        }
-
-        .scroll-track {
-            display: flex;
-            width: max-content;
-            animation: scroll 20s linear infinite;
-        }
-
-        .scroll-track.scroll-right {
-            animation: scrollReverse 20s linear infinite;
-        }
-
-        .scroll-card {
-            background-color: #1e1e1e;
+        .hero-section {
+            background-color: #1c1c1c;
             color: white;
-            font-family: 'Crimson Text', serif;
-            font-size: 13px;
-            text-align: center;
-            border-radius: 8px;
-            padding: 10px;
-            margin: 0 5px;
-            height: 50px;
-            width: 120px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .divider-line {
+            padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 1.5rem);
+            max-width: 100%;
             width: 100%;
-            height: 3px;
-            background-color: #f2f0ef;
-            margin: 5px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
         }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .intro-line,
+        .intro-text {
+            font-size: clamp(1.4rem, 5vw, 3.5rem);
+            font-weight: 700;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            gap: clamp(0.2rem, 0.8vw, 0.6rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        @keyframes scrollReverse {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+        .intro-line {
+            margin-bottom: 0;
         }
 
-        .scroll-track:hover {
-            animation-play-state: paused;
+        .bold-white {
+            color: white;
+            font-weight: 700;
+        }
+
+        .punctuation {
+            color: white;
+            font-weight: 700;
+            margin-left: -0.2em;
+        }
+
+        .skill {
+            color: black;
+            -webkit-text-stroke: 1px white;
+            text-stroke: 1px white;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: clamp(0.1em, 0.5vw, 0.2em) clamp(0.2em, 1vw, 0.4em);
+            border-radius: clamp(0.2em, 0.5vw, 0.3em);
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .skill:hover,
+        .skill:focus {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            -webkit-text-stroke: 1px transparent;
+            text-stroke: 1px transparent;
+            outline: none;
+        }
+
+        .skill:active {
+            transform: translateY(0) scale(1.02);
+        }
+
+        .highlight-red:hover,
+        .highlight-red:focus {
+            background-color: #f28b82;
+            color: #1c1c1c;
+        }
+
+        .highlight-yellow:hover,
+        .highlight-yellow:focus {
+            background-color: #fdd663;
+            color: #1c1c1c;
+        }
+
+        .highlight-blue:hover,
+        .highlight-blue:focus {
+            background-color: #aecbfa;
+            color: #1c1c1c;
+        }
+
+        .highlight-green:hover,
+        .highlight-green:focus {
+            background-color: #81c995;
+            color: #1c1c1c;
+        }
+
+        .highlight-orange:hover,
+        .highlight-orange:focus {
+            background-color: #f5c181;
+            color: #1c1c1c;
         }
 
         #projects {
@@ -317,6 +348,89 @@
             display: none;
         }
 
+        /* Mobile-specific optimizations for hero */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: clamp(0.8rem, 3vw, 1.5rem) clamp(1rem, 4vw, 1.2rem);
+            }
+
+            .intro-line,
+            .intro-text {
+                font-size: clamp(1.2rem, 6vw, 2.2rem);
+                gap: clamp(0.15rem, 1vw, 0.4rem);
+                line-height: 1.2;
+            }
+
+            .skill {
+                padding: clamp(0.05em, 0.6vw, 0.12em) clamp(0.12em, 1vw, 0.25em);
+                border-radius: clamp(0.12em, 0.5vw, 0.2em);
+            }
+
+            .skill:hover,
+            .skill:focus {
+                transform: translateY(-1px) scale(1.03);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: clamp(0.6rem, 2vw, 1rem) clamp(0.8rem, 3vw, 1rem);
+                gap: clamp(0.3rem, 1vw, 0.6rem);
+            }
+
+            .intro-line,
+            .intro-text {
+                font-size: clamp(1rem, 7vw, 1.8rem);
+                gap: clamp(0.1rem, 0.8vw, 0.3rem);
+                line-height: 1.25;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .hero-section {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2rem);
+            }
+
+            .intro-line,
+            .intro-text {
+                font-size: clamp(2.5rem, 4vw, 4rem);
+                gap: clamp(0.5rem, 1vw, 1rem);
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .skill {
+                -webkit-text-stroke: 2px white;
+                text-stroke: 2px white;
+                border: 1px solid white;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .skill {
+                transition: none;
+            }
+
+            .skill:hover,
+            .skill:focus {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        /* Focus visible for keyboard navigation */
+        .skill:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+
         /* Responsive Fixes */
         @media (max-width: 1024px) {
             #about {
@@ -354,9 +468,6 @@
             section {
                 padding: 30px 15px;
             }
-            #home .intro {
-                padding: 25px 15px;
-            }
             #about {
                 padding: 20px 15px;
             }
@@ -370,11 +481,6 @@
             nav a {
                 font-size: 15px;
                 padding: 4px 8px;
-            }
-            .scroll-card {
-                width: 100px;
-                height: 40px;
-                font-size: 12px;
             }
             .prototype-grid {
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -409,9 +515,6 @@
             section {
                 padding: 20px 10px;
             }
-            #home .intro {
-                padding: 20px 10px;
-            }
             #about {
                 padding: 15px 10px;
             }
@@ -424,11 +527,6 @@
             nav a {
                 font-size: 14px;
                 padding: 4px 8px;
-            }
-            .scroll-card {
-                width: 90px;
-                height: 35px;
-                font-size: 11px;
             }
             .prototype-grid {
                 grid-template-columns: 1fr;
@@ -460,11 +558,6 @@
                 font-size: 13px;
                 padding: 3px 6px;
             }
-            .scroll-card {
-                width: 80px;
-                height: 30px;
-                font-size: 10px;
-            }
             footer a {
                 font-size: 14px;
                 margin: 0 6px;
@@ -482,59 +575,18 @@
     </nav>
 
     <section id="home">
-        <div class="intro">
-            <h1>Hi there! I'm MEG and I design cool interfaces!</h1>
-            <p>Location: Philadelphia, P.A</p>
-            <p>Welcome to my virtual corner of the internet. Consider this your backstage pass to my creative story.</p>
-        </div>
-        <div class="scrolling-section">
-            <div class="scroll-row">
-                <div class="scroll-track">
-                    <div class="scroll-card">UX Design</div>
-                    <div class="scroll-card">UI Design</div>
-                    <div class="scroll-card">User Research</div>
-                    <div class="scroll-card">HTML/CSS</div>
-                    <div class="scroll-card">JavaScript</div>
-                    <div class="scroll-card">Wireframing</div>
-                    <div class="scroll-card">Prototyping</div>
-                    <div class="scroll-card">Usability Testing</div>
-                    <div class="scroll-card">Responsive Design</div>
-                    <div class="scroll-card">Accessibility</div>
-                    <div class="scroll-card">Interaction Design</div>
-                    <div class="scroll-card">UX Design</div>
-                    <div class="scroll-card">UI Design</div>
-                    <div class="scroll-card">User Research</div>
-                    <div class="scroll-card">HTML/CSS</div>
-                    <div class="scroll-card">JavaScript</div>
-                    <div class="scroll-card">Wireframing</div>
-                    <div class="scroll-card">Prototyping</div>
-                    <div class="scroll-card">Usability Testing</div>
-                    <div class="scroll-card">Responsive Design</div>
-                    <div class="scroll-card">Accessibility</div>
-                    <div class="scroll-card">Interaction Design</div>
-                </div>
-            </div>
-            <div class="divider-line"></div>
-            <div class="scroll-row">
-                <div class="scroll-track scroll-right">
-                    <div class="scroll-card">Figma</div>
-                    <div class="scroll-card">Framer</div>
-                    <div class="scroll-card">VS Code</div>
-                    <div class="scroll-card">GitHub</div>
-                    <div class="scroll-card">Sketch</div>
-                    <div class="scroll-card">Adobe Creative Suite</div>
-                    <div class="scroll-card">Google Workspace</div>
-                    <div class="scroll-card">Microsoft Office Suite</div>
-                    <div class="scroll-card">Figma</div>
-                    <div class="scroll-card">Framer</div>
-                    <div class="scroll-card">VS Code</div>
-                    <div class="scroll-card">GitHub</div>
-                    <div class="scroll-card">Sketch</div>
-                    <div class="scroll-card">Adobe XD</div>
-                    <div class="scroll-card">Adobe Creative Suite</div>
-                    <div class="scroll-card">Google Workspace</div>
-                    <div class="scroll-card">Microsoft Office Suite</div>
-                </div>
+        <div class="hero-section">
+            <p class="intro-line">
+                <span class="bold-white">Hi, I'm</span>
+                <a href="https://www.mariangasinu.com/about-me" class="skill highlight-orange">MEG</a>
+            </p>
+            <div class="intro-text">
+                <span class="bold-white">I</span>
+                <a href="https://www.mariangasinu.com/projects" class="skill highlight-red">design</a><span class="punctuation">,</span>
+                <a href="https://github.com/megdesigns" class="skill highlight-yellow">code</a><span class="punctuation">,</span>
+                <a href="https://www.mariangasinu.com/insights" class="skill highlight-blue">write</a>
+                <span class="bold-white">&amp;</span>
+                <a href="https://www.youtube.com/@mariangasinu" class="skill highlight-green">game.</a>
             </div>
         </div>
     </section>
@@ -571,9 +623,9 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>I’m a UI/UX Designer passionate about crafting intuitive and engaging digital experiences that solve real-world problems. By understanding user needs, I translate insights into visually appealing and functional designs. My goal is to create products that not only look great but also deliver seamless, user-centered experiences.
+        <p>I'm a UI/UX Designer passionate about crafting intuitive and engaging digital experiences that solve real-world problems. By understanding user needs, I translate insights into visually appealing and functional designs. My goal is to create products that not only look great but also deliver seamless, user-centered experiences.
             <br>
-            <p>Currently I am in the MS in Human-Computer Interaction and User Experience program at Drexel University. With a Bachelor’s in Political Science, I’ve successfully transitioned into design, bringing a fresh perspective to creating meaningful digital experiences. My social science background equipped me with analytical skills, which I apply to make my work aligns with both user needs and business goals. I thrive in collaborative environments where I can share ideas, learn from others, and grow as a designer.
+            <p>Currently I am in the MS in Human-Computer Interaction and User Experience program at Drexel University. With a Bachelor's in Political Science, I've successfully transitioned into design, bringing a fresh perspective to creating meaningful digital experiences. My social science background equipped me with analytical skills, which I apply to make my work aligns with both user needs and business goals. I thrive in collaborative environments where I can share ideas, learn from others, and grow as a designer.
 I believe great design is a balance of creativity, strategy, and empathy. My design process is rooted in user-centered principles
        </p>
 <br>
@@ -591,14 +643,13 @@ I believe great design is a balance of creativity, strategy, and empathy. My des
         <p>I continuously test and refine my designs, ensuring they are intuitive, accessible, and impactful.</p>
 
         <br>
-        <p>I’m proficient in <strong> Figma </strong> and experienced in user research, usability testing, prototyping, and tools like Framer. I also have foundational experience in web development (HTML, CSS, and JavaScript). My journey into design has led me to explore other creative and technical areas like 3D modeling with Blender and building websites.</p>
+        <p>I'm proficient in <strong> Figma </strong> and experienced in user research, usability testing, prototyping, and tools like Framer. I also have foundational experience in web development (HTML, CSS, and JavaScript). My journey into design has led me to explore other creative and technical areas like 3D modeling with Blender and building websites.</p>
         <br>
-        <p>Off screen, I enjoy playing video games(especially EAFC) and traveling. While I’m not a fan of long flights or drives, I love discovering new places, experiencing different cultures, and meeting new people.
+        <p>Off screen, I enjoy playing video games(especially EAFC) and traveling. While I'm not a fan of long flights or drives, I love discovering new places, experiencing different cultures, and meeting new people.
 
-          <p>I’m always open to new challenges and opportunities to grow.</p>
+          <p>I'm always open to new challenges and opportunities to grow.</p>
     </section>
     
-    <div class="divider-line"></div>
     <section id="contact">
         <h2>Contact Me</h2>
         <p>If you have any questions, feedback, or just want to say hi, feel free to reach out!</p>
@@ -624,7 +675,7 @@ I believe great design is a balance of creativity, strategy, and empathy. My des
     </div>
 
     <footer>
-        <p class="attention">Do I have your attention? Let’s talk</p>
+        <p class="attention">Do I have your attention? Let's talk</p>
         <div>
             <a href="mailto:meg444@drexel.edu">Email</a>
             <a href="https://www.linkedin.com/in/mariangasinu-6755bb20a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
@@ -633,7 +684,7 @@ I believe great design is a balance of creativity, strategy, and empathy. My des
     </footer>
 
     <script>
-     
+        // Smooth scrolling navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -642,7 +693,7 @@ I believe great design is a balance of creativity, strategy, and empathy. My des
             });
         });
 
-     
+        // Active navigation highlighting
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
@@ -668,7 +719,7 @@ I believe great design is a balance of creativity, strategy, and empathy. My des
             });
         });
 
-      
+        // Contact form handling
         document.getElementById("contact-form").addEventListener("submit", function(event) {
             event.preventDefault();
             let submitButton = document.getElementById("submit-button");
