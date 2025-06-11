@@ -151,18 +151,21 @@
             border-left: 4px solid #27ae60;
         }
         /* Wireframe */
-        .wireframe-placeholder {
-            background: #ddd;
-            border: 2px dashed #999;
-            border-radius: 8px;
-            height: 884px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            color: #666;
-            font-style: italic;
-        }
+      .wireframe-placeholder {
+    background: #ddd;
+    border: 2px dashed #999;
+    border-radius: 8px;
+    width: 437px;
+    height: 884px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto; /* Center horizontally */
+    color: #666;
+    font-style: italic;
+    max-width: 100%;
+    box-sizing: border-box;
+}
         /* Prototype link video */
 .prototype-link video {
     width: 100%;
