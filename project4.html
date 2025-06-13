@@ -58,7 +58,7 @@
 
         .project-details img {
             width: 100%;
-            max-width: 1200px; /* Limits size on large screens */
+            max-width: 1200px;
             height: auto;
             border-radius: 8px;
             margin: 30px auto;
@@ -139,42 +139,25 @@
             transition: transform 0.3s ease;
         }
 
-        /* Four-column grid for wireframes and UI screens */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        /* Single large image display */
+        .single-image-container {
+            text-align: center;
+            margin: 20px 0;
         }
 
-        .grid-card {
+        .single-image {
+            max-width: 100%;
+            height: auto;
             border: 1px solid #ccc;
             border-radius: 8px;
-            height: 200px;
-            background-color: #f8f8f8;
-            overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .grid-card:hover {
-            transform: scale(1.05);
+        .single-image:hover {
+            transform: scale(1.02);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .grid-card-inner {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .grid-card img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
         }
 
         /* The Overlay (background) */
@@ -227,9 +210,6 @@
             .storyboard-card {
                 width: calc(50% - 10px);
             }
-            .grid-container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
         }
 
         @media (max-width: 600px) {
@@ -262,10 +242,6 @@
             .storyboard-card {
                 width: 100%;
             }
-
-            .grid-container {
-                grid-template-columns: 1fr 1fr;
-            }
         }
 
         @media (max-width: 400px) {
@@ -288,10 +264,6 @@
             
             h2 {
                 font-size: 22px;
-            }
-
-            .grid-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -324,7 +296,8 @@
                         <img src="pictures/vastoryboard.jpg" alt="Storyboard Frame 1">
                     </div>
                 </div>
-                
+            </div>
+        </div>
 
         <div class="section">
             <h2>Prototyping Approach</h2>
@@ -334,60 +307,16 @@
         <div class="section">
             <h2>Cooking Wireframes</h2>
             <p>These wireframes demonstrate the core cooking interface flow, from initial setup through recipe completion:</p>
-            <div class="grid-container">
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/cookingwireframe1.png" alt="Cooking Wireframe 1">
-                    </div>
-                </div>
-                
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/cookingwireframe2.png" alt="Cooking Wireframe 2">
-                    </div>
-                </div>
-                
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/cookingwireframe3.png" alt="Cooking Wireframe 3">
-                    </div>
-                </div>
-
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/cookingwireframe4.png" alt="Cooking Wireframe 4">
-                    </div>
-                </div>
+            <div class="single-image-container">
+                <img src="pictures/wireframevc.png" alt="Cooking Wireframes" class="single-image">
             </div>
         </div>
 
         <div class="section">
             <h2>Figma UI Screens</h2>
             <p>High-fidelity interface screens that demonstrate how the voice assistant would complement the touchscreen display:</p>
-            <div class="grid-container">
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/figmaui1.png" alt="Figma UI Screen 1">
-                    </div>
-                </div>
-                
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/figmaui2.png" alt="Figma UI Screen 2">
-                    </div>
-                </div>
-                
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/figmaui3.png" alt="Figma UI Screen 3">
-                    </div>
-                </div>
-
-                <div class="grid-card">
-                    <div class="grid-card-inner">
-                        <img src="pictures/figmaui4.png" alt="Figma UI Screen 4">
-                    </div>
-                </div>
+            <div class="single-image-container">
+                <img src="pictures/fridgeuisc.png" alt="Figma UI Screens" class="single-image">
             </div>
         </div>
 
@@ -420,17 +349,29 @@
     <!-- JavaScript for the overlay functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all clickable image cards
-            const cards = document.querySelectorAll('.storyboard-card, .grid-card');
+            // Get all clickable images
+            const storyboardCards = document.querySelectorAll('.storyboard-card');
+            const singleImages = document.querySelectorAll('.single-image');
             const overlay = document.getElementById('imageOverlay');
             const overlayImage = document.getElementById('overlayImage');
             const closeBtn = document.querySelector('.close-btn');
             
-            // Add click event to each card
-            cards.forEach(card => {
+            // Add click event to storyboard cards
+            storyboardCards.forEach(card => {
                 card.addEventListener('click', function() {
                     const cardImg = this.querySelector('img');
                     overlayImage.src = cardImg.src;
+                    overlay.style.display = 'block';
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                    }, 10);
+                });
+            });
+            
+            // Add click event to single images
+            singleImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    overlayImage.src = this.src;
                     overlay.style.display = 'block';
                     setTimeout(() => {
                         overlay.style.opacity = '1';
